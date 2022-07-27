@@ -12,7 +12,7 @@
 # RootModule = ''
 
 # Version number of this module.
-ModuleVersion = '0.0.1'
+ModuleVersion = '0.0.2'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -33,7 +33,7 @@ Copyright = '(c) Jeremy Gruttner. All rights reserved.'
 Description = 'PowerShell module to query the JitBit helpdesk api'
 
 # Minimum version of the PowerShell engine required by this module
-PowerShellVersion = '7'
+PowerShellVersion = '7.0'
 
 # Name of the PowerShell host required by this module
 # PowerShellHostName = ''
@@ -95,13 +95,13 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        Tags = @('JitBit','JitBitHelpdesk')
+        Tags = @('JitBit','Helpdesk','REST','API')
 
         # A URL to the license for this module.
         # LicenseUri = ''
 
         # A URL to the main website for this project.
-        ProjectUri = 'https://github.com/Sladersca/JitBitPS'
+        ProjectUri = 'https://github.com/jgrutz/JitBitPS'
 
         # A URL to an icon representing this module.
         # IconUri = ''

@@ -5,8 +5,6 @@ function New-JBTicket {
 
     .DESCRIPTION
     Creates a new ticket on JitBit by submitting a POST request to the api.  Optionally can create a ticket "on-behalf" of a user
-    # TODO  apparently this api endpoint supports file attachments 
-    #       search 'form data post requests' for powershell
     
     .LINK
     https://www.jitbit.com/helpdesk/helpdesk-api#/?id=ticket-post
