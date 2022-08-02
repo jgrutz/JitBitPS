@@ -16,7 +16,7 @@ function Connect-JitBit {
     PROCESS {
         switch ($PsCmdlet.ParameterSetName) {
             'Connect with token' {
-                Write-Host 'Connect with Token'
+                Write-Debug 'Connecting with Token'
                 $JitBitPSSession.url = $url.AbsoluteUri.TrimEnd('/')
                 if ($PSVersionTable.PSVersion -ge '7.0') {
                     $JitBitPSSession.Token = ConvertTo-SecureString -AsPlainText -String $Token
@@ -27,7 +27,7 @@ function Connect-JitBit {
             }
 
             'Connect with secure token' {
-                Write-Host 'Connect with secure token'
+                Write-Debug 'Connecting with secure token'
                 $JitBitPSSession.url = $url.AbsoluteUri.TrimEnd('/')
                 $JitBitPSSession.Token = $SecureToken
                 
