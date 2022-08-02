@@ -10,16 +10,17 @@ $Private = @(Get-ChildItem -Path "$PSScriptRoot\Private\*.ps1" -Recurse -ErrorAc
 
 Write-Verbose "PScript Root: $PSScriptRoot  "
 Write-Verbose "Private Function files:"
-Write-Verbose $Private
+$Private | ForEach-Object { Write-Verbose $_ }
 Write-Verbose "Public function files"
-Write-Verbose $Public
+$Public| ForEach-Object { Write-Verbose $_ }
 
 #Dot source the files
-foreach($import in @($Public + $Private)){
-    try{
+foreach ($import in @($Public + $Private)) {
+    try {
         . $Import.FullName
         Write-Verbose $Import.FullName
-    }catch {
+    }
+    catch {
         Write-Error -Message "Failed to import funciton $($Import.FullName): $_"
     }
 }

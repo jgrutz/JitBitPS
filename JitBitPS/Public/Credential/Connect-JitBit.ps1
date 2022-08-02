@@ -38,7 +38,7 @@ function Connect-JitBit {
         Write-Debug "Site Token: $($JitBitPSSession.Token)"
 
         if (-not (Test-JBConnection)) {
-            throw "Cannot verify connection to snipe it. For the start try to check url and provided apikey or credential parameters"
+            throw "Cannot verify connection to JitBit Helpdesk. For the start try to check url and provided apikey or credential parameters"
         }
     }
 }
