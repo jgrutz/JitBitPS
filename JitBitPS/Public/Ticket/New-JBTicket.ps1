@@ -89,12 +89,12 @@ function New-JBTicket {
     $Result = @{}
     foreach($ResultEntry in $ResultArray){
         if($ResultEntry -match "(.*): (.*)"){
-            Write-Host "Key: $($Matches[1])"
-            Write-Host "Value: $($Matches[2])"
+            Write-Debug "Key: $($Matches[1])"
+            Write-Debug "Value: $($Matches[2])"
             $Result.Add($Matches[1],$Matches[2])
         }elseif($ResultEntry -match "^\d+$"){
-            Write-Host "Key: id"
-            Write-Host "Value: $($Matches[0])"
+            Write-Debug "Key: id"
+            Write-HWrite-Debugost "Value: $($Matches[0])"
             $Result.Add("id",$Matches[0])
         }
     }
