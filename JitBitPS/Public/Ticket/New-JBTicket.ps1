@@ -12,8 +12,8 @@ function New-JBTicket {
     .OUTPUTS
     The created ticket id
 
-    .PARAMETER Category
-    CategoryId
+    .PARAMETER CategoryID
+    CategoryId.  use Get-JBCategories to find options
 
     .PARAMETER Body
     The body of the ticket. Supports html
@@ -39,7 +39,7 @@ function New-JBTicket {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]
-        [int]$Category,
+        [int]$CategoryID,
         [Parameter(Mandatory = $true)]
         [String]$Body,
         [Parameter(Mandatory = $true)]
@@ -64,7 +64,7 @@ function New-JBTicket {
     }
 
     $Form = @{
-        Category   = $Category
+        CategoryID   = $CategoryID
         Body       = $Body
         Subject    = $Subject
         PriorityId = $PriorityId
