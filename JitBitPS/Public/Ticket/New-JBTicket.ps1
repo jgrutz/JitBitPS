@@ -84,8 +84,10 @@ function New-JBTicket {
         $form.Add("uploadfile", $Attachments)
     }
     
+    # Api doc says that this endpoint returns the new ticket's id but it's returning other stuff like the priority too.
+    # Not returned a JSON object so we will attempt to parse it
     $ResultArray = Invoke-JBMethod @Params -Form $form 
-    
+
     $Result = @{}
     foreach($ResultEntry in $ResultArray){
         if($ResultEntry -match "(.*): (.*)"){
