@@ -7,7 +7,7 @@ function Get-JBAsset {
 
     $Params = @{
         Api  = "Asset"
-        body = $PSBoundParameters
+        body = [Collections.HashTable]::new($PSBoundParameters)
     }
 
     Invoke-JBMethod @Params

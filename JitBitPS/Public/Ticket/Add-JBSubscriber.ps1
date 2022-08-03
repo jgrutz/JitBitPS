@@ -22,7 +22,7 @@ function Add-JBSubscriber {
     $Params = @{
         Api    = "AddSubscriber"
         Method = "POST"
-        Body   = $PSBoundParameters
+        Body   = [Collections.Hashtable]::New($PSBoundParameters)
     }
 
     Invoke-JBMethod @Params

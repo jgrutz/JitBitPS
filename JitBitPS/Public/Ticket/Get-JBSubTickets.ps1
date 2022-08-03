@@ -16,7 +16,7 @@ function Get-JBSubTickets {
         
     $Params = @{
         Api  = "SubTickets"
-        Body = $PSBoundParameters
+        Body = [Collections.Hashtable]::New($PSBoundParameters)
     }
         
     Invoke-JBMethod @Params

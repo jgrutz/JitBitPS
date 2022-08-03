@@ -16,7 +16,7 @@ function Get-JBComments {
 
     $Params = @{
         Api  = "comments"
-        Body = $PSBoundParameters
+        Body = [Collections.Hashtable]::New($PSBoundParameters)
     }
             
     Invoke-JBMethod @Params

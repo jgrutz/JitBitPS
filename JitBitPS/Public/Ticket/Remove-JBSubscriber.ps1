@@ -22,7 +22,7 @@ function Remove-JBSubscriber {
     $Params = @{
         Api    = "RemoveSubscriber"
         Method = "POST"
-        Body   = $PSBoundParameters
+        Body   = [Collections.Hashtable]::New($PSBoundParameters)
     }
 
     Invoke-JBMethod @Params

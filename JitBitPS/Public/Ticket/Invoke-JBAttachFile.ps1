@@ -7,11 +7,15 @@ function Invoke-JBAttachFile {
     Ticket id
 
     .PARAMETER uploadFile
-    File to upload. # TODO doc says file data but I think Invoke-RestMethod wants a file path.
+    File to upload. 
 
     .OUTPUTS
     Outputs the file data. Capture to a variable or write to a file/stream
 
+    .EXAMPLE
+    $MyFile = Get-Item C:\temp\my-picture.jpg
+    Invoke-JBAttachFile -id 123 -uploadFile $MyFile
+    
     #>
 
     [CmdletBinding()]
@@ -19,13 +23,13 @@ function Invoke-JBAttachFile {
         [Parameter(Mandatory = $true)]
         [int]$id,
         [Parameter(Mandatory = $true)]
-        [String]$uploadFile
+        [FileInfo] $uploadFile
     )
 
     $Params = @{
         Api    = "AttachFile"
         Method = "POST"
-        Form   = $PSBoundParameters
+        Form   = [Collections.Hashtable]::New($PSBoundParameters)
     }
 
     Invoke-JBMethod @Params

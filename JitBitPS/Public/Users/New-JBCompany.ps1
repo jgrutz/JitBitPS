@@ -20,7 +20,7 @@ function New-JBCompany {
     $Params = @{
         Api    = "Company"
         Method = "POST"
-        body   = $PSBoundParameters
+        body   = [Collections.Hashtable]::New($PSBoundParameters)
     }
 
     Invoke-JBMethod @Params

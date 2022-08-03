@@ -46,7 +46,7 @@ function Add-JBComment {
     $Params = @{
         Api    = "comment"
         Method = "POST"
-        Form   = $PSBoundParameters
+        Form   = [Collections.Hashtable]::New($PSBoundParameters)
     }
             
     Invoke-JBMethod @Params

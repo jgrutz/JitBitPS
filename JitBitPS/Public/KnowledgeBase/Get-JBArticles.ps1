@@ -9,8 +9,8 @@ function Get-JBArticles {
         Api = "Articles"
     }
 
-    if ($PSBoundParameters) {
-        $params.Add("Body", $PSBoundParameters)
+    if ($PSBoundParameters.Count -gt 0) {
+        $params.Add("Body", [Collections.Hashtable]::New($PSBoundParameters))
     }
 
     Invoke-JBMethod @Params

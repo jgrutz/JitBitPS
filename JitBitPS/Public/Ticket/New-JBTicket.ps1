@@ -32,8 +32,11 @@ function New-JBTicket {
 
     .PARAMETER Attachments
     The file paths to any attachments.  ex Get-Item -Path 'C:\temp\screenshot-123.png'
-    The online gui supports multiple attachments but not sure if the api does or not
 
+    .EXAMPLE
+    $Attachments = @( (Get-Item C:\temp-screenshot-123.png), (Get-Item C:\temp-screenshot-456.png))
+    New-JBTicket -categoryid 2 -body "This should have 2 attachments" -Subject "[Test]Multiple Attachments" -PriorityId 2 -Attachments $Attachments
+    
     #>
 
     [CmdletBinding()]
@@ -53,9 +56,10 @@ function New-JBTicket {
         [String[]]
         $Tags,
         [Parameter(Mandatory = $false)]
-        [String[]]
+        [IO.FileInfo[]]
         $Attachments
     )
+    
 
     Write-Output "Priority: $PriorityId"
     $Params = @{
@@ -77,7 +81,6 @@ function New-JBTicket {
     }
 
     if ($Attachments) {
-        # TODO test this out.  File uploads are disabled in demo version i think
         $form.Add("uploadfile", $Attachments)
     }
     

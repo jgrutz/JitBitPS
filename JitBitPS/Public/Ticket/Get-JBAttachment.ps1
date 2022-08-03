@@ -16,7 +16,7 @@ function Get-JBAttachment {
 
     $Params = @{
         Api  = "attachment"
-        Body = $PSBoundParameters
+        Body = [Collections.Hashtable]::New($PSBoundParameters)
     }
 
     Invoke-JBMethod @Params

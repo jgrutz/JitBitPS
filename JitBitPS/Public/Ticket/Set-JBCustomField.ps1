@@ -31,7 +31,7 @@ function Set-JBCustomField {
     $params = @{
         Api    = "SetCustomField"
         Method = "POST"
-        $Body  = $PSBoundParameters
+        $Body  = [Collections.Hashtable]::New($PSBoundParameters)
     }
 
     Invoke-JBMethod @params

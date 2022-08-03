@@ -12,7 +12,7 @@ function Set-JBCustomFieldForUser {
     $Params = @{
         Api    = "SetCustomFieldForUser"
         Method = "POST"
-        Body   = $PSBoundParameters
+        Body   = [Collections.Hashtable]::New($PSBoundParameters)
     }
             
     Invoke-JBMethod @Params

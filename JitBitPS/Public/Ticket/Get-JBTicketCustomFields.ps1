@@ -21,7 +21,7 @@ function Get-JBTicketCustomFields {
 
     $Params = @{
         Api  = "TicketCustomFields"
-        Body = $PSBoundParameters
+        Body = [Collections.Hashtable]::New($PSBoundParameters)
     }
 
     Invoke-JBMethod @Params

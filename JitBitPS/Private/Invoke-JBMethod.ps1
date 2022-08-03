@@ -17,10 +17,8 @@ function Invoke-JBMethod {
     Body of the request. Could be a hastable of parameters such as
         $Body = @{userid=123,name='John',lastname='Doe'}
 
-    .PARAMETER GetParameters
-    aka Query String. This is like the stuff in a URL after the question mark seperated by '&'. 
-    See https://www.seobility.net/en/wiki/GET_Parameters
-        https://en.wikipedia.org/wiki/Query_string
+    .PARAMETER Form
+    Use when using POST with a multi part form
 
     #>
 
@@ -37,7 +35,6 @@ function Invoke-JBMethod {
         [hashtable]$Form
     )
 
-    # TODO there should be two named parameter sets, for Body or Form? 
 
     $Params = @{
         URI            = "$($JitBitPSSession.url)/Api/$Api"
@@ -45,11 +42,6 @@ function Invoke-JBMethod {
         Token          = $JitBitPSSession.Token
         Method         = $Method
     }
-    
-    # if($GetParameters){
-    #     # TODO this is not going to work.
-    #     $Params.Add("GetParameters",$GetParameters)
-    # }
 
     if ($Form) {
         $Params.Add("Form", $Form)

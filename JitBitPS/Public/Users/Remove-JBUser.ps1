@@ -14,7 +14,7 @@ function Remove-JBUser {
     $Params = @{
         Api    = "DeleteUser"
         Method = "POST"
-        Body   = $PSBoundParameters
+        Body   = [Collections.Hashtable]::New($PSBoundParameters)
     }
             
     Invoke-JBMethod @Params

@@ -7,7 +7,7 @@ function Get-JBArticle {
 
     $Params = @{
         Api  = "Article"
-        body = $PSBoundParameters
+        body = [Collections.Hashtable]::New($PSBoundParameters)
     }
 
     Invoke-JBMethod @Params

@@ -7,7 +7,7 @@ function Get-JBUserCustomFields {
 
     $Params = @{
         Api  = "UserCustomFields"
-        Body = $PSBoundParameters
+        Body = [Collections.Hashtable]::New($PSBoundParameters)
     }
             
     Invoke-JBMethod @Params

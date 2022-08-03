@@ -45,8 +45,8 @@ function Get-JBTickets {
     }
 
     # Change any DateTime objects to iso dates
-    if ($PSBoundParameters) {
-        $Body = $PSBoundParameters
+    if ($PSBoundParameters.count -gt 0) {
+        $Body = [Collections.Hashtable]::New($PSBoundParameters)
         [String[]] $keys = $body.Keys
         for ($ctr = 0; $ctr -lt $Body.Count; $ctr ++) {
             if ($body[$Keys[$ctr]] -is [DateTime]) {

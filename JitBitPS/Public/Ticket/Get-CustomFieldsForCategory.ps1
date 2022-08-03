@@ -16,7 +16,7 @@ function Get-CustomFieldsForCategory {
 
     $Params = @{
         Api  = "CustomFieldsForCategory"
-        Body = $PSBoundParameters
+        Body = [Collections.Hashtable]::New($PSBoundParameters)
     }
 
     Invoke-JBMethod @Params

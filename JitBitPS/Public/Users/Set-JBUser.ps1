@@ -56,7 +56,7 @@ function Set-JBUser {
     $Params = @{
         Api    = "UpdateUser"
         Method = "POST"
-        Body   = $PSBoundParameters
+        Body   = [Collections.Hashtable]::New($PSBoundParameters)
     }
             
     Invoke-JBMethod @Params

@@ -22,7 +22,7 @@ function Add-JBSubTicket {
     $Params = @{
         Api    = "AddSubTicket"
         Method = "POST"
-        Body   = $PSBoundParameters
+        Body   = [Collections.Hashtable]::New($PSBoundParameters)
     }
         
     Invoke-JBMethod @Params

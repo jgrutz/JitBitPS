@@ -7,7 +7,7 @@ function Get-JBUser {
 
     $Params = @{
         Api  = "User"
-        Body = $PSBoundParameters
+        Body = [Collections.Hashtable]::New($PSBoundParameters)
     }
             
     Invoke-JBMethod @Params

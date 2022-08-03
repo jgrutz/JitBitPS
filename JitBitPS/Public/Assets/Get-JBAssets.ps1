@@ -16,7 +16,7 @@ function Get-JBAssets {
     }
 
     if ($PSBoundParameters) {
-        $Params.Add("Body", $PSBoundParameters)
+        $Params.Add("Body", [Collections.HashTable]::new($PSBoundParameters))
     }
 
     Invoke-JBMethod @Params

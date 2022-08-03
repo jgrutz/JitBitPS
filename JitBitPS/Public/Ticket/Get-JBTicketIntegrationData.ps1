@@ -16,7 +16,7 @@ function Get-JBTicketIntegrationData {
         
     $Params = @{
         Api  = "TicketIntegrationData"
-        Body = $PSBoundParameters
+        Body = [Collections.Hashtable]::New($PSBoundParameters)
     }
         
     Invoke-JBMethod @Params

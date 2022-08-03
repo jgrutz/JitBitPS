@@ -22,7 +22,7 @@ function Invoke-JBMergeTickets {
     $Params = @{
         Api    = "MergeTickets"
         Method = "POST"
-        Body   = $PSBoundParameters
+        Body   = [Collections.Hashtable]::New($PSBoundParameters)
     }
 
     Invoke-JBMethod @Params

@@ -22,7 +22,7 @@ function New-JBAsset {
     $Params = @{
         Api    = "Asset"
         Method = "POST"
-        body   = $PSBoundParameters
+        body   = [Collections.Hashtable]::New($PSBoundParameters)
     }
 
     Invoke-JBMethod @Params

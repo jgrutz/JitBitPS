@@ -17,7 +17,7 @@ function Remove-JBSubTicket {
     $Params = @{
         Api    = "RemoveSubTicket"
         Method = "POST"
-        Body   = $PSBoundParameters
+        Body   = [Collections.Hashtable]::New($PSBoundParameters)
     }
         
     Invoke-JBMethod @Params

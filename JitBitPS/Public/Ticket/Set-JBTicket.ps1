@@ -77,11 +77,13 @@ function Set-JBTicket {
         $PSBoundParameters['tags'] -join ","
     }
 
-    $body = $PSBoundParameters
+    $PostBody =  [Collections.Hashtable]::new($PSBoundParameters)
+
+    $PSBoundParameters
     $Params = @{
         Api    = "UpdateTicket"
         Method = "POST"
-        Body   = $body
+        Body   = $PostBody
     }
 
     Invoke-JBMethod @params

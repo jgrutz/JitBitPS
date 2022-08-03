@@ -7,7 +7,7 @@ function Get-JBCompanyCustomFields {
 
     $Params = @{
         Api  = "CompanyCustomFields"
-        body = $PSBoundParameters
+        body = [Collections.Hashtable]::New($PSBoundParameters)
     }
 
     Invoke-JBMethod @Params

@@ -16,7 +16,7 @@ function Get-JBSubscribers {
 
     $Params = @{
         Api  = "Subscribers"
-        Body = $PSBoundParameters
+        Body = [Collections.Hashtable]::New($PSBoundParameters)
     }
 
     Invoke-JBMethod @Params

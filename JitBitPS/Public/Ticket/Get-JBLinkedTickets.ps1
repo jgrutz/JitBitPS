@@ -16,7 +16,7 @@ function Get-JBLinkedTickets {
         
     $Params = @{
         Api  = "LinkedTickets"
-        Body = $PSBoundParameters
+        Body = [Collections.Hashtable]::New($PSBoundParameters)
     }
         
     Invoke-JBMethod @Params

@@ -45,8 +45,8 @@ function Get-JBUsers {
         Api = "UserCustomFields"
     }
 
-    if ($PSBoundParameters) {
-        $Params.Add("Body", $PSBoundParameters)
+    if ($PSBoundParameters.count -gt 0) {
+        $Params.Add("Body", [Collections.Hashtable]::New($PSBoundParameters))
     }
             
     Invoke-JBMethod @Params
