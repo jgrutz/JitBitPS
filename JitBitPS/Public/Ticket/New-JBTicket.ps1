@@ -84,5 +84,20 @@ function New-JBTicket {
         $form.Add("uploadfile", $Attachments)
     }
     
-    Invoke-JBMethod @Params -Form $form 
+    $ResultArray = Invoke-JBMethod @Params -Form $form 
+    
+    $Result = @{}
+    foreach($ResultEntry in $ResultArray){
+        if($ResultEntry -match "(.*): (.*)"){
+            Write-Host "Key: $($Matches[1])"
+            Write-Host "Value: $($Matches[2])"
+            $Result.Add($Matches[1],$Matches[2])
+        }elseif($ResultEntry -match "^\d+$"){
+            Write-Host "Key: id"
+            Write-Host "Value: $($Matches[0])"
+            $Result.Add("id",$Matches[0])
+        }
+    }
+    
+    return $Result
 }
