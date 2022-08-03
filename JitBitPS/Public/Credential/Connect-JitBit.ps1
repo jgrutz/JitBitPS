@@ -13,6 +13,7 @@ function Connect-JitBit {
         [SecureString]$SecureToken
     )
 
+    # TODO read the url as the username of the saved credential file
     PROCESS {
         switch ($PsCmdlet.ParameterSetName) {
             'Connect with token' {

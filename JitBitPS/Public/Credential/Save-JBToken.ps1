@@ -30,6 +30,7 @@ function Save-JBToken {
         [PSCredential]$Credential
     )
 
+    # TODO save the url as the username of the credential
     PROCESS {
         switch ($PsCmdlet.ParameterSetName) {
             'Connect with Credential' {
