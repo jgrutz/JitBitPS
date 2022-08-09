@@ -96,7 +96,7 @@ function New-JBTicket {
             $Result.Add($Matches[1],$Matches[2])
         }elseif($ResultEntry -match "^\d+$"){
             Write-Debug "Key: id"
-            Write-HWrite-Debugost "Value: $($Matches[0])"
+            Write-Debug "Value: $($Matches[0])"
             $Result.Add("id",$Matches[0])
         }
     }

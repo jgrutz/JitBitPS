@@ -15,7 +15,7 @@ function Save-JBToken {
     Use token as a SecureString
 
     .PARAMETER Credential
-    Supply the Token as the password in a Credential object if that's easier with ex Get-Credential
+    Supply the url as Username and Token as the password in a PSCredential object with ex Get-Credential
 
     #>
 
